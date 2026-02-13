@@ -99,7 +99,7 @@ const AnimatedBackground = () => {
             {/* Parallax Abstract Shapes */}
             <motion.div
                 animate={{
-                    rotate: [0, i * 10],
+                    rotate: [0, 20, 0],
                 }}
                 transition={{
                     duration: 40,
