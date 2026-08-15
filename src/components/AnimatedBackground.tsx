@@ -79,18 +79,18 @@ const AnimatedBackground = () => {
                         animate={{
                             y: [0, -100],
                             opacity: [0, 0.3, 0],
-                            x: [0, Math.random() * 50 - 25]
+                            x: [0, ((i * 17) % 50) - 25]
                         }}
                         transition={{
-                            duration: 10 + Math.random() * 10,
+                            duration: 10 + ((i * 7) % 10),
                             repeat: Infinity,
-                            delay: Math.random() * 10,
+                            delay: (i * 3) % 10,
                             ease: "linear"
                         }}
                         className="absolute w-1 h-1 bg-white rounded-full"
                         style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100 + 100}%`,
+                            left: `${(i * 37) % 100}%`,
+                            top: `${100 + ((i * 23) % 100)}%`,
                         }}
                     />
                 ))}
