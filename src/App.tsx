@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const clients = [
   { name: "Lagos State Government", logo: "/clients/lagos.png", className: "crest" },
   { name: "Covenant University", logo: "/clients/covenant.png", className: "wide" },
@@ -33,6 +35,39 @@ const services = [
 ];
 
 export default function Home() {
+  useEffect(() => {
+    const revealItems = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.12 },
+    );
+    revealItems.forEach((item) => observer.observe(item));
+
+    const header = document.querySelector<HTMLElement>(".site-header");
+    const hero = document.querySelector<HTMLElement>(".hero");
+    const onScroll = () => header?.classList.toggle("is-scrolled", window.scrollY > 18);
+    const onPointerMove = (event: PointerEvent) => {
+      if (!hero) return;
+      const bounds = hero.getBoundingClientRect();
+      hero.style.setProperty("--mx", `${event.clientX - bounds.left}px`);
+      hero.style.setProperty("--my", `${event.clientY - bounds.top}px`);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    hero?.addEventListener("pointermove", onPointerMove, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      hero?.removeEventListener("pointermove", onPointerMove);
+    };
+  }, []);
+
   return (
     <main>
       <a className="skip-link" href="#main-content">Skip to content</a>
@@ -48,6 +83,7 @@ export default function Home() {
 
       <section id="top" className="hero">
         <div className="hero-grain" aria-hidden="true"></div>
+        <div className="hero-aurora" aria-hidden="true"></div>
         <div className="hero-copy" id="main-content">
           <p className="kicker light">NIGERIA&apos;S OPERATIONAL TECHNOLOGY PARTNER</p>
           <h1>Better work.<br/><em>Built to last.</em></h1>
@@ -59,23 +95,33 @@ export default function Home() {
           <p className="promise">UNDER PROMISE, OVER DELIVER.</p>
         </div>
         <div className="hero-system" aria-hidden="true">
+          <div className="system-beam beam-one"></div>
+          <div className="system-beam beam-two"></div>
           <div className="system-orbit orbit-one"></div>
           <div className="system-orbit orbit-two"></div>
           <div className="system-grid"></div>
+          <i className="signal-dot dot-one"></i>
+          <i className="signal-dot dot-two"></i>
+          <i className="signal-dot dot-three"></i>
           <div className="system-block block-one"><span>01</span><b>CLARITY</b></div>
           <div className="system-block block-two"><span>02</span><b>SYSTEMS</b></div>
           <div className="system-block block-three"><span>03</span><b>SCALE</b></div>
           <div className="system-core"><span>ARK</span></div>
-          <p>ADVISE → BUILD → DELIVER</p>
+          <div className="system-caption"><span>ARK OPERATING SYSTEM</span><b>ADVISE → BUILD → DELIVER</b></div>
         </div>
       </section>
 
       <section className="trust-bar" aria-label="Selected clients">
         <p>SELECTED EXPERIENCE ACROSS</p>
-        <div><span>Government</span><i></i><span>Education</span><i></i><span>Financial services</span><i></i><span>Energy</span><i></i><span>Social impact</span></div>
+        <div className="trust-window">
+          <div className="trust-track">
+            <div className="trust-set"><span>Government</span><i></i><span>Education</span><i></i><span>Financial services</span><i></i><span>Energy</span><i></i><span>Social impact</span><i></i></div>
+            <div className="trust-set" aria-hidden="true"><span>Government</span><i></i><span>Education</span><i></i><span>Financial services</span><i></i><span>Energy</span><i></i><span>Social impact</span><i></i></div>
+          </div>
+        </div>
       </section>
 
-      <section className="manifesto section-shell">
+      <section className="manifesto section-shell" data-reveal>
         <div className="section-number">01 / WHY ARK</div>
         <div className="manifesto-copy">
           <p className="kicker">ONE PARTNER. THREE CAPABILITIES.</p>
@@ -88,13 +134,13 @@ export default function Home() {
       </section>
 
       <section id="capabilities" className="capabilities">
-        <div className="section-shell capability-intro">
+        <div className="section-shell capability-intro" data-reveal>
           <div className="section-number">02 / CAPABILITIES</div>
           <div><p className="kicker light">FROM INTENT TO OPERATIONS</p><h2>One outcome.<br/>Every layer required.</h2></div>
         </div>
         <div className="service-stack">
           {services.map((service) => (
-            <article className="service-row" key={service.id}>
+            <article className="service-row" key={service.id} data-reveal>
               <div className="service-id"><span>{service.id}</span><b>{service.label}</b></div>
               <h3>{service.title}</h3>
               <div className="service-copy"><p>{service.copy}</p><ul>{service.details.map((item) => <li key={item}>{item}</li>)}</ul></div>
@@ -104,13 +150,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="experience section-shell">
+      <section id="experience" className="experience section-shell" data-reveal>
         <div className="section-number">03 / EXPERIENCE</div>
         <div className="experience-content">
           <div className="experience-heading"><div><p className="kicker">SELECTED CLIENT EXPERIENCE</p><h2>Trusted where the work matters.</h2></div><p>Experience across public institutions, leading universities, a quoted company and mission-led organisations.</p></div>
           <div className="logo-wall">
             {clients.map((client) => (
-              <div className="client-logo" key={client.name}>
+              <div className="client-logo" key={client.name} data-reveal>
                 <img src={client.logo} alt={`${client.name} logo`} className={client.className}/>
                 <span>{client.name}</span>
               </div>
@@ -121,7 +167,7 @@ export default function Home() {
       </section>
 
       <section id="method" className="method">
-        <div className="section-shell method-grid">
+        <div className="section-shell method-grid" data-reveal>
           <div className="section-number">04 / METHOD</div>
           <div className="method-copy"><p className="kicker light">THE ARK BUILD PATH</p><h2>Start with the constraint.<br/><em>End with momentum.</em></h2><p>We begin small enough to move decisively, then expand only when the value is visible.</p></div>
           <ol className="method-list">
@@ -133,12 +179,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="principles section-shell">
+      <section className="principles section-shell" data-reveal>
         <div className="section-number">05 / THE DIFFERENCE</div>
         <div className="principles-content"><p className="kicker">WHAT YOU CAN EXPECT</p><h2>Enterprise discipline.<br/>Builder&apos;s mentality.</h2><div className="principle-grid"><article><span>01</span><h3>One accountable team</h3><p>Fewer vendors, fewer hand-offs and one connected view of the outcome.</p></article><article><span>02</span><h3>Local operating context</h3><p>Recommendations shaped for Nigerian teams, constraints and decision realities.</p></article><article><span>03</span><h3>Visible progress</h3><p>Clear milestones, honest trade-offs and working evidence—not theatre.</p></article></div></div>
       </section>
 
-      <section id="contact" className="contact">
+      <section id="contact" className="contact" data-reveal>
         <div className="contact-glow" aria-hidden="true"></div>
         <div className="contact-copy"><p className="kicker light">YOUR NEXT MOVE</p><h2>Bring us the work<br/>holding you back.</h2><p>In one focused conversation, we will clarify the opportunity and identify the most sensible next step.</p></div>
         <div className="contact-panel">
