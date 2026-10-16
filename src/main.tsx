@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
+import './premium.css'
 import App from './App'
 import source from './content/site.json'
 import type { Content } from './content/types'

@@ -1,0 +1,31 @@
+{
+  "tool": "rea-agents",
+  "version": "6.5.0",
+  "source": "https://github.com/morluto/rea",
+  "workflow": "Dedicated loopback Chromium profile; passive CDP inspection of the existing page before and after the design change.",
+  "before": {
+    "evidence_id": "ev_734c3eacc2acf3a79f72d8c5306493431c5fd6db4fcd10a4bba2a8ee52acc975",
+    "dom_nodes": 631,
+    "accessibility_nodes": 667,
+    "observed_console_events": 0,
+    "limitations": [
+      "Artifact identity is unavailable for this observation.",
+      "Observation starts when REA attaches; prior network and console activity is unavailable.",
+      "Raw network headers, bodies, cookies, storage values, console objects, and WebSocket payloads are never retained; explicitly requested primitive console text is retained verbatim, while payload captures retain value-free shapes.",
+      "Source maps are reported only as declarative URLs and are not fetched."
+    ]
+  },
+  "after": {
+    "evidence_id": "ev_918b1905611f206dfb42d888bf4b779251384d8c2977d2f44da69c37cc24637a",
+    "dom_nodes": 724,
+    "accessibility_nodes": 696,
+    "observed_console_events": 0,
+    "limitations": [
+      "Artifact identity is unavailable for this observation.",
+      "Observation starts when REA attaches; prior network and console activity is unavailable.",
+      "Raw network headers, bodies, cookies, storage values, console objects, and WebSocket payloads are never retained; explicitly requested primitive console text is retained verbatim, while payload captures retain value-free shapes.",
+      "Source maps are reported only as declarative URLs and are not fetched."
+    ]
+  },
+  "comparison_limitation": "The optional compare-web-captures CLI rejected both Evidence envelopes and extracted passive captures against its accepted schema. No successful REA comparison or visual equivalence is claimed. Browser interaction/accessibility tests validate the implementation separately."
+}

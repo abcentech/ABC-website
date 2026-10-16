@@ -1,14 +1,11 @@
 :root {
-  font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
-  color: #152034;
-  background: #fafbf9;
+  font-family: Manrope, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
   font-synthesis: none;
   --navy: #101c30;
   --slate: #334155;
   --amber: #f5bf45;
-  --paper: #fafbf9;
-  --muted: #536173;
-  --line: #dce1e4;
   --mono: Consolas, 'Liberation Mono', monospace;
 }
 * {
@@ -47,7 +44,7 @@ summary:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid #b66a00;
+  outline: 3px solid var(--focus);
   outline-offset: 5px;
 }
 p {
@@ -153,7 +150,7 @@ main {
   border-color: var(--amber);
 }
 .header-cta {
-  border: 1px solid #bbc2c9;
+  border: 1px solid var(--control-border);
   padding: 14px 18px;
   font-size: 13px;
   font-weight: 650;
@@ -451,11 +448,11 @@ main {
   grid-template-columns: repeat(3, 1fr);
   padding: 0 5.5%;
   border-bottom: 1px solid var(--line);
-  background: #f0f2ee;
+  background: var(--surface);
 }
 .pillars > a {
   padding: 36px 28px;
-  border-right: 1px solid #d5dcd6;
+  border-right: 1px solid var(--line);
 }
 .pillars > a:first-child {
   padding-left: 0;
@@ -465,7 +462,7 @@ main {
   padding-right: 0;
 }
 .pillars .eyebrow {
-  color: #53614f;
+  color: var(--tone);
 }
 .pillars h2 {
   font-size: 23px;
@@ -500,7 +497,7 @@ main {
   margin-bottom: 42px;
 }
 .section-heading .eyebrow {
-  color: #566576;
+  color: var(--muted);
   margin-bottom: 22px;
 }
 .section-heading h2 {
@@ -715,7 +712,7 @@ main {
 }
 .project-info .eyebrow {
   font-size: 8px;
-  color: #526070;
+  color: var(--muted);
 }
 .project-info h3 {
   font-size: 25px;
@@ -747,7 +744,7 @@ main {
 }
 .status {
   font: 9px var(--mono);
-  color: #425447;
+  color: var(--tone);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -821,13 +818,13 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10%;
-  background: #eff1ec;
+  background: var(--surface);
 }
 .industry-strip h2 {
   margin: 23px 0;
 }
 .industry-strip h2 em {
-  color: #626f5b;
+  color: var(--tone);
 }
 .industry-strip p {
   font-size: 14px;
@@ -841,7 +838,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #cbd3c8;
+  border-bottom: 1px solid var(--line);
   padding: 18px 0;
   font-size: 14px;
 }
@@ -851,7 +848,7 @@ main {
 .steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid #aab4be;
+  border-top: 1px solid var(--line);
   margin-bottom: 28px;
 }
 .steps article {
@@ -866,7 +863,7 @@ main {
 }
 .steps article > span {
   font: 10px var(--mono);
-  color: #667283;
+  color: var(--muted);
 }
 .steps h3 {
   font-size: 20px;
@@ -928,7 +925,7 @@ main {
 }
 footer {
   padding: 60px 6.5% 24px;
-  background: #f0f2ee;
+  background: var(--surface);
 }
 .footer-top {
   display: grid;
@@ -943,7 +940,7 @@ footer {
 }
 .footer-top .eyebrow {
   font-size: 8px;
-  color: #536173;
+  color: var(--muted);
 }
 .footer-top h2 {
   font-size: 12px;
@@ -954,7 +951,7 @@ footer {
 .footer-top > div > a:not(.brand) {
   display: block;
   font-size: 12px;
-  color: #49586a;
+  color: var(--muted);
   line-height: 1.4;
   padding: 8px 0;
   min-height: 32px;
@@ -963,14 +960,14 @@ footer {
   text-decoration: underline;
 }
 .footer-bottom {
-  border-top: 1px solid #cdd5cc;
+  border-top: 1px solid var(--line);
   margin-top: 48px;
   padding-top: 22px;
   display: flex;
   gap: 30px;
   align-items: center;
   font-size: 10px;
-  color: #526070;
+  color: var(--muted);
 }
 .footer-bottom p {
   margin: 0 auto 0 0;
@@ -980,8 +977,8 @@ footer {
 }
 .privacy-settings {
   display: block;
-  background: #f0f2ee;
-  color: #425466;
+  background: var(--surface);
+  color: var(--muted);
   font-size: 10px;
   border: 0;
   text-decoration: underline;
@@ -997,19 +994,19 @@ footer {
   z-index: 60;
   max-width: 420px;
   padding: 20px 22px;
-  background: white;
-  border: 1px solid #d1d8d7;
+  background: var(--card);
+  border: 1px solid var(--line);
   box-shadow: 0 10px 40px #15203422;
 }
 .consent p {
   font-size: 12px;
   line-height: 1.6;
   margin: 0 0 15px;
-  color: #435166;
+  color: var(--muted);
 }
 .consent b {
   display: block;
-  color: var(--navy);
+  color: var(--ink);
   font-size: 13px;
 }
 .consent a {
@@ -1021,9 +1018,9 @@ footer {
 }
 .consent button {
   font-size: 11px;
-  border: 1px solid #c1c9cd;
+  border: 1px solid var(--line);
   padding: 11px 15px;
-  background: white;
+  background: var(--card);
   min-height: 44px;
 }
 .consent button:last-child {
@@ -1032,12 +1029,12 @@ footer {
 }
 .page-hero {
   padding: 24px 6.5% 68px;
-  background: #eef1ed;
-  border-bottom: 1px solid #d9dfd8;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
 }
 .breadcrumbs {
   font-size: 10px;
-  color: #566476;
+  color: var(--muted);
   display: flex;
   gap: 14px;
   align-items: center;
@@ -1050,7 +1047,7 @@ footer {
 }
 .page-hero > .eyebrow {
   margin-bottom: 22px;
-  color: #52624e;
+  color: var(--tone);
 }
 .page-hero h1 {
   max-width: 1030px;
@@ -1059,7 +1056,7 @@ footer {
 .page-hero > p {
   max-width: 730px;
   font-size: 18px;
-  color: #526173;
+  color: var(--muted);
   line-height: 1.7;
   margin-bottom: 0;
 }
@@ -1081,7 +1078,7 @@ footer {
   font-size: 16px;
 }
 .deliverables {
-  background: #f0f2ee;
+  background: var(--surface);
 }
 .deliverable-grid {
   display: grid;
@@ -1089,12 +1086,12 @@ footer {
   gap: 25px;
 }
 .deliverable-grid article {
-  border-top: 1px solid #b7c2b5;
+  border-top: 1px solid var(--line);
   padding: 20px 0;
 }
 .deliverable-grid article > span {
   font: 11px var(--mono);
-  color: #596653;
+  color: var(--tone);
 }
 .deliverable-grid h3 {
   font-size: 23px;
@@ -1111,16 +1108,16 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8%;
-  background: #f0f2ee;
+  background: var(--surface);
 }
 .faq-section h2 {
   margin-top: 22px;
 }
 .faq-list details {
-  border-top: 1px solid #bec8bb;
+  border-top: 1px solid var(--line);
 }
 .faq-list details:last-child {
-  border-bottom: 1px solid #bec8bb;
+  border-bottom: 1px solid var(--line);
 }
 .faq-list summary {
   padding: 23px 0;
@@ -1144,11 +1141,11 @@ footer {
 }
 .faq-list p {
   font-size: 14px;
-  color: #526070;
+  color: var(--muted);
   margin-bottom: 25px;
 }
 .note-section {
-  background: #f0f2ee;
+  background: var(--surface);
 }
 .note-section p {
   max-width: 800px;
@@ -1163,7 +1160,7 @@ footer {
   border-bottom: 1px solid var(--line);
 }
 .case-meta .eyebrow {
-  color: #62705e;
+  color: var(--tone);
   font-size: 9px;
 }
 .case-meta p {
@@ -1261,10 +1258,10 @@ footer {
   content: '↗';
   position: absolute;
   left: 0;
-  color: #4e674b;
+  color: var(--tone);
 }
 .evidence-note {
-  background: #f0f2ee;
+  background: var(--surface);
   border-left: 3px solid #9aab8e;
   padding: 20px;
   font-size: 13px !important;
@@ -1277,7 +1274,7 @@ footer {
 }
 .industry-grid article {
   padding: 27px 0;
-  border-top: 1px solid #b2beb0;
+  border-top: 1px solid var(--line);
 }
 .industry-grid h2 {
   font-size: 30px;
@@ -1319,7 +1316,7 @@ footer {
 .contact-note {
   margin-top: 40px;
   padding: 24px;
-  background: #eff2eb;
+  background: var(--surface);
 }
 .contact-note b {
   font-size: 14px;
@@ -1330,8 +1327,8 @@ footer {
   margin: 12px 0 0;
 }
 .brief-form {
-  border: 1px solid #d7dfd3;
-  background: white;
+  border: 1px solid var(--line);
+  background: var(--card);
   padding: 36px;
 }
 .form-intro h2 {
@@ -1355,7 +1352,7 @@ label {
   display: block;
 }
 .form-grid label > span {
-  color: #71581e;
+  color: var(--accent-text);
 }
 .form-grid input,
 .form-grid select,
@@ -1364,11 +1361,11 @@ label {
 .admin select,
 .admin textarea {
   width: 100%;
-  border: 1px solid #78888e;
+  border: 1px solid var(--control-border);
   border-radius: 0;
-  background: #fafbf9;
+  background: var(--paper);
   padding: 12px;
-  color: var(--navy);
+  color: var(--ink);
   display: block;
   margin-top: 8px;
   font-size: 14px;
@@ -1386,7 +1383,7 @@ label {
 }
 .form-grid small {
   font-size: 11px;
-  color: #596879;
+  color: var(--muted);
   font-weight: 400;
   display: block;
   margin-top: 9px;
@@ -1401,7 +1398,7 @@ label {
   gap: 15px;
   align-items: start;
   margin: 25px 0;
-  background: #eff2ed;
+  background: var(--surface);
   padding: 16px;
 }
 .attachment-note > span {
@@ -1411,11 +1408,11 @@ label {
   font-size: 12px;
   line-height: 1.6;
   margin: 0;
-  color: #526070;
+  color: var(--muted);
 }
 .attachment-note b {
   display: block;
-  color: var(--navy);
+  color: var(--ink);
 }
 .honeypot {
   position: absolute;
@@ -1429,7 +1426,7 @@ label {
   align-items: start;
   font-size: 11px;
   font-weight: 400;
-  color: #526070;
+  color: var(--muted);
   margin-bottom: 25px;
   line-height: 1.7;
 }
@@ -1444,7 +1441,7 @@ label {
 }
 .form-footnote {
   font-size: 10px;
-  color: #576575;
+  color: var(--muted);
   margin: 15px 0 0;
 }
 .form-error {
@@ -1456,7 +1453,7 @@ label {
 .handoff {
   padding: 25px 0 0;
   margin-top: 25px;
-  border-top: 1px solid #d0d8ce;
+  border-top: 1px solid var(--line);
 }
 .handoff h3 {
   font-size: 22px;
@@ -1471,7 +1468,7 @@ label {
   line-height: 1.7;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  background: #f0f2ee;
+  background: var(--surface);
   padding: 18px;
   max-height: 250px;
   overflow: auto;
@@ -1562,7 +1559,7 @@ label {
   overflow-x: auto;
 }
 .admin-note {
-  background: #eef1eb;
+  background: var(--surface);
   padding: 20px;
   font-size: 13px;
 }
@@ -1752,7 +1749,7 @@ blockquote cite {
     right: 0;
     padding: 18px 5% 24px;
     background: var(--paper);
-    border-bottom: 1px solid #bdc7cb;
+    border-bottom: 1px solid var(--line);
     box-shadow: 0 14px 20px #1520340f;
   }
   .site-header nav.open {
@@ -2226,7 +2223,7 @@ blockquote cite {
   .pillars > a:last-child {
     padding: 24px 0;
     border-right: 0;
-    border-bottom: 1px solid #ccd6c9;
+    border-bottom: 1px solid var(--line);
   }
   .pillars > a:last-child {
     border-bottom: 0;

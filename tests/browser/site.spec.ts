@@ -77,7 +77,7 @@ test('desktop and mobile layouts, navigation, keyboard and reduced motion', asyn
   await page.emulateMedia({ reducedMotion: 'reduce' })
   expect(
     await page
-      .locator('.system-node')
+      .locator('.trace-light')
       .first()
       .evaluate((el) => getComputedStyle(el).animationName),
   ).toBe('none')

@@ -9,6 +9,11 @@ export default defineConfig([
   globalIgnores(['dist', '.ssr', 'playwright-report', 'test-results']),
   { files: ['**/*.mjs'], ...js.configs.recommended, languageOptions: { globals: globals.node } },
   {
+    files: ['public/theme-init.js'],
+    ...js.configs.recommended,
+    languageOptions: { globals: globals.browser },
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,

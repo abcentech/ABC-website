@@ -1,8 +1,10 @@
+import { ThemePicker } from './components/ThemePicker'
+import { useMotion } from './useMotion'
 import { Arrow } from './components/Arrow'
 import { useEffect, useRef, useState } from 'react'
 import type { Content, FAQ, Project, Service } from './content/types'
 import source from './content/site.json'
-import { SystemVisual, ProjectVisual } from './components/Visuals'
+import { SystemVisual, ProjectVisual, DeliveryDiagram, CapabilityGlyph } from './components/Visuals'
 import { ProjectForm } from './components/ProjectForm'
 import { Consent } from './components/Consent'
 import { consentValue } from './analytics'
@@ -74,6 +76,7 @@ function Header({ path }: { path: string }) {
           </a>
         ))}
       </nav>
+      <ThemePicker />
       <a className="header-cta" href="/start-project" data-event="header_cta">
         Start a Project <Arrow />
       </a>
@@ -323,6 +326,7 @@ function Home({ content }: { content: Content }) {
           ],
         ].map(([label, desc, href], i) => (
           <a key={label} href={href}>
+            <CapabilityGlyph kind={i} />
             <span className="eyebrow">
               0{i + 1} / {label}
             </span>
@@ -356,6 +360,7 @@ function Home({ content }: { content: Content }) {
           title="From the first question to the final handover."
           text="A connected technology partner, whether you need a focused website or a more ambitious business platform."
         />
+        <DeliveryDiagram />
         <div className="service-list">
           {content.services.map((s, i) => (
             <a key={s.slug} href={`/services/${s.slug}`}>
@@ -799,9 +804,11 @@ function Privacy() {
         </p>
         <h2>Browser storage and essential sessions</h2>
         <p>
-          Your analytics preference is stored locally in your browser. You can change it through
-          Privacy settings. The public site sets no advertising cookies. The administration service
-          uses an essential, expiring session cookie for authenticated staff.
+          Your appearance preference (Light, Dark or System) is stored locally in your browser and
+          can be changed through the Appearance control. Your analytics preference is also stored
+          locally. You can change it through Privacy settings. The public site sets no advertising
+          cookies. The administration service uses an essential, expiring session cookie for
+          authenticated staff.
         </p>
         <h2>Enquiry records and rights</h2>
         <p>
@@ -887,6 +894,7 @@ export default function App({
   path?: string
   content?: Content
 }) {
+  useMotion(path)
   useEffect(() => {
     const record = (e: MouseEvent) => {
       if (consentValue() !== 'accepted') return

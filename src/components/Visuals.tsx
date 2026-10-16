@@ -2,46 +2,120 @@ import { Arrow } from './Arrow'
 export function SystemVisual() {
   return (
     <div
-      className="system-visual"
+      className="system-visual nexus-visual"
       role="img"
-      aria-label="Ark Builders connects consulting, software and hardware from strategy through delivery"
+      aria-label="An illuminated architectural gateway representing connected consulting, software and hardware"
     >
+      <picture className="hero-artwork">
+        <source media="(max-width: 540px)" srcSet="/art/ark-nexus-480.webp" />
+        <img
+          src="/art/ark-nexus-960.webp"
+          width="960"
+          height="960"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
+      <div className="visual-vignette" aria-hidden="true" />
       <div className="visual-top">
         <span>
-          <i /> CONNECTED THINKING
+          <i /> THE ART OF BUILDING BETTER
         </span>
         <span>ARK / 01</span>
       </div>
-      <div className="orbit orbit-outer" />
-      <div className="orbit orbit-inner" />
-      <div className="axis axis-h" />
-      <div className="axis axis-v" />
-      <div className="system-center">
-        <span className="mini-mark">A</span>
-        <b>ARK</b>
-        <small>BUILDERS</small>
+      <svg className="nexus-traces" viewBox="0 0 600 640" fill="none" aria-hidden="true">
+        <path
+          className="trace-base"
+          d="M54 180h82l32 32v80M546 262h-70l-30 30v130M98 490h100l35-35h72"
+        />
+        <path
+          className="trace-light"
+          d="M54 180h82l32 32v80M546 262h-70l-30 30v130M98 490h100l35-35h72"
+        />
+        <circle cx="54" cy="180" r="4" />
+        <circle cx="546" cy="262" r="4" />
+        <circle cx="98" cy="490" r="4" />
+        <path className="trace-corner" d="M26 58V26h32m484 0h32v32M26 582v32h32m484 0h32v-32" />
+      </svg>
+      <div className="visual-disciplines">
+        <span>
+          01 <b>Think.</b>
+        </span>
+        <span>
+          02 <b>Build.</b>
+        </span>
+        <span>
+          03 <b>Connect.</b>
+        </span>
       </div>
-      <div className="system-node node-consult">
-        <span>01 / STRATEGY</span>
-        <b>Consulting</b>
-        <small>See the way forward</small>
-      </div>
-      <div className="system-node node-software">
-        <span>02 / SYSTEMS</span>
-        <b>Software</b>
-        <small>Make it work better</small>
-      </div>
-      <div className="system-node node-hardware">
-        <span>03 / FOUNDATION</span>
-        <b>Hardware</b>
-        <small>Build on solid ground</small>
-      </div>
-      <span className="orbit-dot" />
       <div className="visual-bottom">
-        <span>THINK CLEARLY. BUILD PURPOSEFULLY.</span>
+        <span>THREE CAPABILITIES. ONE CONNECTED PARTNER.</span>
         <Arrow />
       </div>
     </div>
+  )
+}
+export function CapabilityGlyph({ kind }: { kind: number }) {
+  return (
+    <svg
+      className="capability-glyph"
+      width="34"
+      height="34"
+      viewBox="0 0 40 40"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      aria-hidden="true"
+    >
+      {kind === 0 ? (
+        <>
+          <path d="M8 31V11l12-6 12 6v20L20 37 8 31Zm0-20 12 6 12-6M20 17v20" />
+          <path className="glyph-accent" d="M8 20 20 26l12-6M20 5v12" />
+        </>
+      ) : kind === 1 ? (
+        <>
+          <path d="m20 4 16 9-16 9L4 13 20 4Z" />
+          <path d="m4 21 16 9 16-9M4 29l16 9 16-9" />
+          <path className="glyph-accent" d="m12 13 8 4 8-4" />
+        </>
+      ) : (
+        <>
+          <rect x="7" y="5" width="26" height="30" rx="2" />
+          <path d="M7 15h26M7 25h26M13 10h10m-10 10h10m-10 10h10" />
+          <path className="glyph-accent" d="M27 10h1m-1 10h1m-1 10h1" />
+        </>
+      )}
+    </svg>
+  )
+}
+export function DeliveryDiagram() {
+  return (
+    <figure className="delivery-map">
+      <svg viewBox="0 0 1000 160" preserveAspectRatio="none" fill="none" aria-hidden="true">
+        <path className="delivery-line" d="M30 80H970M170 38h170l42 42m200 0 42 42h170" />
+        <path className="delivery-signal" d="M30 80H970" />
+        <circle cx="166" cy="80" r="27" />
+        <circle cx="500" cy="80" r="27" />
+        <circle cx="834" cy="80" r="27" />
+      </svg>
+      <div className="delivery-stations">
+        {[
+          ['Clarity', 'Understand the right problem.'],
+          ['Craft', 'Make the right thing work.'],
+          ['Continuity', 'Build for what comes next.'],
+        ].map(([title, copy], i) => (
+          <div key={title}>
+            <span className="station-icon">
+              <CapabilityGlyph kind={i} />
+            </span>
+            <b>{title}</b>
+            <small>{copy}</small>
+          </div>
+        ))}
+      </div>
+      <figcaption>CONSULTING → SOFTWARE → HARDWARE · CONNECTED FROM THE START</figcaption>
+    </figure>
   )
 }
 export function ProjectVisual({ kind, large = false }: { kind: string; large?: boolean }) {

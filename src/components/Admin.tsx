@@ -1,3 +1,4 @@
+import { ThemePicker } from './ThemePicker'
 import { useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
 import type { Content } from '../content/types'
@@ -183,9 +184,12 @@ export function Admin() {
   }
   return (
     <main className="admin">
-      <a href="/" className="text-link">
-        ← Return to Ark Builders
-      </a>
+      <div className="admin-controls">
+        <a href="/" className="text-link">
+          ← Return to Ark Builders
+        </a>
+        <ThemePicker />
+      </div>
       <h1>Content & enquiries</h1>
       <p>Authorized administrators only. Public enquiries go directly to WhatsApp.</p>
       {status && (

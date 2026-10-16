@@ -318,6 +318,7 @@ export function createApp(options = {}) {
         '.xml': 'application/xml; charset=utf-8',
         '.txt': 'text/plain; charset=utf-8',
         '.woff2': 'font/woff2',
+        '.webp': 'image/webp',
       }
       const accept = req.headers['accept-encoding'] || ''
       for (const [encoding, suffix] of [

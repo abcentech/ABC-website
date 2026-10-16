@@ -12,6 +12,7 @@ For a built-site staging check, run `npm run build` then `npm run server`. The p
 - [Audit and phased implementation](docs/UPGRADE.md)
 - [Development, CMS, staging and deployment](docs/DEPLOYMENT.md)
 - [Validation, page inventory and outstanding approvals](docs/VALIDATION.md)
+- [Premium motion, imagery and dark mode](docs/PREMIUM-MOTION.md)
 - [Screenshots](docs/screenshots/)
 
 Run `npm run lint`, `npm run typecheck`, `npm test`, `npm run build` and `npm run test:e2e`. No production deployment is authorized by these commands. The existing Pages workflow deploys on pushes to main; obtain explicit approval before merging/pushing to main.

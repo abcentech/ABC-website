@@ -1,6 +1,6 @@
 # Upgrade delivery and validation
 
-Prepared on `feat/ark-builders-upgrade`. No production deployment, push, DNS change or destructive infrastructure operation was performed.
+Initial upgrade prepared on `feat/ark-builders-upgrade`. The subsequent premium interaction and theme iteration is on `feat/premium-motion-dark-mode`; see [PREMIUM-MOTION.md](PREMIUM-MOTION.md) for its 47-browser-check results and previews. No production deployment, push, DNS change or destructive infrastructure operation was performed.
 
 ## Delivered
 
@@ -51,7 +51,7 @@ Additional: `/admin` (noindex; configured backend required), generated `404.html
 
 ## Performance
 
-See [performance.json](performance.json). Local mobile lab check: 390×844, 4× CPU slowdown, 1.6 Mbps download and 150 ms latency. Observed LCP/FCP 848 ms, CLS 0, 82,588 transferred resource bytes and zero external rendering requests. Automated budgets: LCP below 2.5 seconds and CLS at most 0.1. These are local lab measurements, not field Core Web Vitals or an INP claim. Validate real-user performance after staging/production approval.
+See [performance.json](performance.json). Local mobile lab check: 390×844, 4× CPU slowdown, 1.6 Mbps download and 150 ms latency. The latest premium iteration observed LCP/FCP 1,620 ms, CLS 0.040, 130,002 transferred resource bytes and zero external rendering requests. Automated budgets: LCP below 2.5 seconds and CLS at most 0.1. These are local lab measurements, not field Core Web Vitals or an INP claim. Validate real-user performance after staging/production approval.
 
 ## Screenshots
 
