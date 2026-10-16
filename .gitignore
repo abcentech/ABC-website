@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Generated staging, CMS and test artifacts
+.ssr/
+playwright-report/
+test-results/
+.env*
+!.env.example
+*.sqlite*
+/var/

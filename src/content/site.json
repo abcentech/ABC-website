@@ -1,0 +1,301 @@
+{
+  "services": [
+    {
+      "slug": "website-development",
+      "title": "Website development",
+      "eyebrow": "A better digital front door",
+      "intro": "Turn your website into a clear, credible reason to choose your business.",
+      "problem": "An outdated website makes a good business harder to trust. Slow pages, confusing navigation and unclear enquiries lose the people you worked hard to reach.",
+      "solution": "We connect brand, content and engineering in a website built around what your customers need to understand and do next.",
+      "deliverables": [
+        "Corporate and service websites",
+        "Publishing and content platforms",
+        "Accessible, responsive interfaces",
+        "Search foundations and enquiry journeys"
+      ],
+      "questions": [
+        {
+          "question": "Can you improve our existing website?",
+          "answer": "Yes. We start with an audit of your content, integrations and hosting, then agree what to preserve and what needs to change."
+        },
+        {
+          "question": "Will our team be able to update content?",
+          "answer": "We agree an editing workflow during discovery and provide the access, documentation and training included in your scope."
+        }
+      ],
+      "related": "church-times-nigeria"
+    },
+    {
+      "slug": "custom-software",
+      "title": "Custom software",
+      "eyebrow": "Systems shaped around your work",
+      "intro": "Move beyond spreadsheets, disconnected tools and workarounds.",
+      "problem": "When essential processes live across inboxes and spreadsheets, people repeat work and leaders struggle to see what is happening.",
+      "solution": "We map the workflow with your team and build a focused platform that connects people, information and decisions.",
+      "deliverables": [
+        "Business portals and dashboards",
+        "Workflow and approval systems",
+        "Enterprise applications and APIs",
+        "Third-party system integrations"
+      ],
+      "questions": [
+        {
+          "question": "How do we avoid building the wrong thing?",
+          "answer": "Discovery identifies the users, constraints and measurable outcomes. We validate a focused scope before committing to a larger build."
+        },
+        {
+          "question": "Can you integrate with existing systems?",
+          "answer": "We assess documentation, access, security requirements and API limitations before proposing an integration approach."
+        }
+      ],
+      "related": "base-coldtivate"
+    },
+    {
+      "slug": "mobile-app-development",
+      "title": "Mobile app development",
+      "eyebrow": "Useful wherever work happens",
+      "intro": "Give customers and teams a simpler way to get things done on mobile.",
+      "problem": "A desktop process does not always work in the field. Connectivity, device constraints and complex screens can get in the way of essential tasks.",
+      "solution": "We design mobile journeys around real environments, then choose an appropriate native, cross-platform or web-based approach.",
+      "deliverables": [
+        "Customer and workforce applications",
+        "Mobile-first product prototypes",
+        "Offline requirements assessment",
+        "Release planning and maintenance"
+      ],
+      "questions": [
+        {
+          "question": "Do we need an app or a mobile website?",
+          "answer": "We assess your users, distribution needs, device features and budget. A responsive website can be the better starting point."
+        },
+        {
+          "question": "Can the product work with limited connectivity?",
+          "answer": "We can plan offline workflows, synchronization and conflict handling where the business case and technical constraints support them."
+        }
+      ],
+      "related": "base-coldtivate"
+    },
+    {
+      "slug": "ai-automation",
+      "title": "AI & automation",
+      "eyebrow": "Less friction. More useful work.",
+      "intro": "Find practical ways to automate work, with people and governance in the loop.",
+      "problem": "AI promises are easy to buy. Finding a useful, responsible application within your existing processes is harder.",
+      "solution": "We assess data readiness, identify repeatable workflows and test a bounded use case before recommending wider adoption.",
+      "deliverables": [
+        "AI opportunity and readiness reviews",
+        "Document and workflow automation",
+        "Internal knowledge assistants",
+        "Human review and governance design"
+      ],
+      "questions": [
+        {
+          "question": "Do we need to share sensitive business data?",
+          "answer": "We first define the minimum data required, access controls and provider terms. Sensitive information should not be shared before those decisions are agreed."
+        },
+        {
+          "question": "Will AI replace our existing systems?",
+          "answer": "Usually the starting point is a specific workflow. We assess how automation fits the tools and people you already rely on."
+        }
+      ],
+      "related": null
+    },
+    {
+      "slug": "technology-consulting",
+      "title": "Technology consulting",
+      "eyebrow": "Clarity before commitment",
+      "intro": "Make technology decisions with a clear view of cost, risk and business value.",
+      "problem": "Conflicting vendor advice and disconnected systems make it difficult to decide what to invest in next.",
+      "solution": "We work with business and technical stakeholders to define priorities, assess options and create a practical delivery roadmap.",
+      "deliverables": [
+        "Technology and process diagnostics",
+        "Solution architecture and roadmaps",
+        "Digital transformation planning",
+        "Vendor and procurement requirements"
+      ],
+      "questions": [
+        {
+          "question": "Can you work with our internal IT team?",
+          "answer": "Yes. We agree responsibilities, decision points and knowledge transfer so recommendations can be put into practice."
+        },
+        {
+          "question": "What will we have at the end of discovery?",
+          "answer": "The agreed outputs can include a problem definition, prioritized requirements, architecture options, risks and a phased implementation plan."
+        }
+      ],
+      "related": null
+    },
+    {
+      "slug": "hardware-infrastructure",
+      "title": "Hardware & infrastructure",
+      "eyebrow": "The foundation behind the platform",
+      "intro": "Connect the right equipment, deployment plan and support to the work ahead.",
+      "problem": "Hardware purchased without a clear operating plan can leave teams with compatibility issues, fragmented ownership and unexpected support needs.",
+      "solution": "We help define requirements, assess equipment options and coordinate configuration, integration and handover around your environment.",
+      "deliverables": [
+        "Equipment specification and sourcing",
+        "Workstation and network deployment",
+        "Hardware and software integration",
+        "Documentation and support planning"
+      ],
+      "questions": [
+        {
+          "question": "Can you support a procurement process?",
+          "answer": "We can help clarify specifications, evaluate compatibility and document the scope. Commercial terms and supplier warranties are agreed for each engagement."
+        },
+        {
+          "question": "Do you provide ongoing maintenance?",
+          "answer": "Support responsibilities, coverage and response arrangements are defined in the project agreement; they are not assumed or guaranteed."
+        }
+      ],
+      "related": null
+    }
+  ],
+  "projects": [
+    {
+      "slug": "base-coldtivate",
+      "name": "BASE / Coldtivate",
+      "title": "Developing Digital Solutions for Sustainable Agriculture",
+      "category": "Agritech · Software Development · Digital Innovation",
+      "status": "Software contribution",
+      "summary": "Ark Builders contributed software engineering expertise to Coldtivate, a digital solution designed to help agricultural stakeholders improve postharvest management and the effectiveness of cooling services.",
+      "client": "BASE — Basel Agency for Sustainable Energy, Switzerland",
+      "industry": "Agriculture & climate technology",
+      "approval": "High-level description supplied by Ark Builders. Detailed delivery scope, technologies, outcomes and product imagery await verification.",
+      "sections": [
+        {
+          "heading": "The business problem",
+          "body": "Postharvest management and cooling services depend on timely, usable information. Coldtivate is designed to help agricultural stakeholders manage that complexity more effectively.",
+          "items": []
+        },
+        {
+          "heading": "Ark Builders’ role",
+          "body": "Ark Builders contributed software engineering expertise. The available public summary does not establish a feature-by-feature delivery scope, implementation stack or measured outcomes.",
+          "items": []
+        },
+        {
+          "heading": "Technical considerations",
+          "body": "Agricultural software can involve connectivity, data consistency and coordination between different users. Specific technical challenges addressed by Ark Builders require project-level verification before publication.",
+          "items": []
+        },
+        {
+          "heading": "Historical proposal topics — not confirmed deliverables",
+          "body": "These topics come from historical proposal references in the project brief. They are not presented as completed work by Ark Builders. Detailed scope and technologies remain subject to verification.",
+          "items": [
+            "Digital crate management and QR-code workflows",
+            "Payment integration and cold-chain tracking",
+            "Multilingual support and operational dashboards",
+            "Data exports and system stabilization"
+          ]
+        },
+        {
+          "heading": "Outcomes and product evidence",
+          "body": "No verified outcome metrics or approved product screenshots were available for this website upgrade. The illustration explains the general service context; it is not Coldtivate’s interface.",
+          "items": []
+        }
+      ],
+      "visual": "cold-chain",
+      "cta": "Discuss an agritech solution"
+    },
+    {
+      "slug": "church-times-nigeria",
+      "name": "Church Times Nigeria",
+      "title": "Building a Digital News Platform for Nigeria’s Christian Community",
+      "category": "Digital Publishing · Web Development · Media Technology",
+      "status": "In development",
+      "summary": "Ark Builders is working on the digital platform for Church Times Nigeria, a Christian news initiative focused on making relevant church news, events and stories accessible to audiences across Nigeria.",
+      "client": "Church Times Nigeria",
+      "industry": "Media & digital publishing",
+      "approval": "In development. Preview is an illustrative concept, not an approved product screenshot or a completed deliverable.",
+      "sections": [
+        {
+          "heading": "The reader and publisher need",
+          "body": "A news platform needs to make relevant stories easy to find and read while giving editors a workable way to publish. The Church Times Nigeria initiative focuses on church news, events and stories across Nigeria.",
+          "items": []
+        },
+        {
+          "heading": "Ark Builders’ role",
+          "body": "Ark Builders is working on the digital platform. The project is in development; the features and interface shown here are proposals and concepts.",
+          "items": []
+        },
+        {
+          "heading": "Solution approach",
+          "body": "The proposed direction prioritizes readable typography, clear content categories and a mobile-first experience, alongside an editorial workflow suited to the publishing team.",
+          "items": []
+        },
+        {
+          "heading": "Proposed features — work in progress",
+          "body": "These features are proposed or in progress. No launch, integration or publishing capability is represented as complete.",
+          "items": [
+            "Modern, mobile-first publishing website",
+            "News categories, search and editorial management",
+            "Rich media and video support",
+            "SEO-oriented article pages and social sharing",
+            "Potential newsletter and subscriber features"
+          ]
+        },
+        {
+          "heading": "Current status",
+          "body": "In development. The preview is a concept for discussion and does not imply approval of final design, content or functionality.",
+          "items": []
+        }
+      ],
+      "visual": "publishing",
+      "cta": "Discuss a publishing platform"
+    }
+  ],
+  "industries": [
+    {
+      "name": "Education & e-learning",
+      "description": "Learning platforms, institutional websites and administrative workflows that make information easier to access.",
+      "related": null
+    },
+    {
+      "name": "Financial services & fintech",
+      "description": "Customer journeys, operational tools and integration planning, scoped around the institution’s security and regulatory requirements.",
+      "related": null
+    },
+    {
+      "name": "Agriculture & climate technology",
+      "description": "Digital tools for agricultural operations, service coordination and clearer information across the value chain.",
+      "related": "base-coldtivate"
+    },
+    {
+      "name": "Media & digital publishing",
+      "description": "Reader-first publishing experiences, organized content and practical editorial workflows.",
+      "related": "church-times-nigeria"
+    },
+    {
+      "name": "Nonprofits & development organizations",
+      "description": "Platforms, reporting workflows and accessible digital services built around programme needs.",
+      "related": "base-coldtivate"
+    },
+    {
+      "name": "Government & public institutions",
+      "description": "Service portals, information architecture and workflow planning for public-facing and internal teams.",
+      "related": null
+    },
+    {
+      "name": "Corporate & enterprise systems",
+      "description": "Connected business applications, dashboards and infrastructure that support day-to-day operations.",
+      "related": null
+    }
+  ],
+  "team": [],
+  "insights": [],
+  "testimonials": [],
+  "faqs": [
+    {
+      "question": "Where do you work?",
+      "answer": "Ark Builders is based in Lagos, Nigeria, and welcomes enquiries from local and international organizations. Delivery arrangements are agreed during discovery."
+    },
+    {
+      "question": "What size of project can we discuss?",
+      "answer": "Tell us your goals and budget range. We assess fit and scope before making a proposal, including focused projects and larger phased programmes."
+    },
+    {
+      "question": "What happens after I send a project brief?",
+      "answer": "We review the context in WhatsApp, clarify the need and agree the next step. Sending a brief does not create a contract or commit you to a project."
+    }
+  ]
+}
