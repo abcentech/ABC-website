@@ -1,9 +1,9 @@
 {
   "scope": "Local production-build mobile lab check, not field Core Web Vitals",
   "profile": "390x844, 4x CPU slowdown, 1.6 Mbps download, 150 ms latency",
-  "lcp": 1620,
-  "cls": 0.039992343750539935,
-  "fcp": 1620,
-  "transferBytes": 130002,
+  "lcp": 1412,
+  "cls": 0,
+  "fcp": 1412,
+  "transferBytes": 162978,
   "externalRequests": 0
 }

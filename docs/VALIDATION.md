@@ -1,5 +1,7 @@
 # Upgrade delivery and validation
 
+Latest refinement: see [EDITORIAL-EXPERIENCE.md](EDITORIAL-EXPERIENCE.md) for the guided enquiry, revised layouts, current previews and validation. The initial implementation results below are historical. The earlier website and motion iterations were subsequently deployed with user approval; the new editorial branch has not been published.
+
 Initial upgrade prepared on `feat/ark-builders-upgrade`. The subsequent premium interaction and theme iteration is on `feat/premium-motion-dark-mode`; see [PREMIUM-MOTION.md](PREMIUM-MOTION.md) for its 47-browser-check results and previews. No production deployment, push, DNS change or destructive infrastructure operation was performed.
 
 ## Delivered

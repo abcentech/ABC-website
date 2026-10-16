@@ -16,7 +16,14 @@ const content = contentSchema.parse(
 const origin = (process.env.SITE_ORIGIN || 'https://arkbuilders.com.ng').replace(/\/$/, '')
 if (!/^https?:\/\/[a-z0-9.:[\]-]+$/i.test(origin))
   throw new Error('SITE_ORIGIN must be an HTTP(S) origin without a path')
-const template = await readFile('dist/index.html', 'utf8')
+const themeVersion = createHash('sha256')
+  .update(await readFile('public/theme-init.js'))
+  .digest('hex')
+  .slice(0, 12)
+const template = (await readFile('dist/index.html', 'utf8')).replace(
+  'src="/theme-init.js"',
+  `src="/theme-init.js?v=${themeVersion}"`,
+)
 const escape = (value) =>
   String(value)
     .replaceAll('&', '&amp;')

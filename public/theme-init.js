@@ -8,7 +8,7 @@
     root.dataset.themePreference = preference
     root.dataset.theme = preference === 'system' ? (media.matches ? 'dark' : 'light') : preference
     const meta = document.querySelector('meta[name="theme-color"]')
-    if (meta) meta.content = root.dataset.theme === 'dark' ? '#091321' : '#fafbf9'
+    if (meta) meta.content = root.dataset.theme === 'dark' ? '#0c1722' : '#f8f7f3'
     window.dispatchEvent(new Event('ark-theme'))
   }
   let saved = 'system'

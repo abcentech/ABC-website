@@ -12,6 +12,7 @@ For a built-site staging check, run `npm run build` then `npm run server`. The p
 - [Audit and phased implementation](docs/UPGRADE.md)
 - [Development, CMS, staging and deployment](docs/DEPLOYMENT.md)
 - [Validation, page inventory and outstanding approvals](docs/VALIDATION.md)
+- [Latest editorial layout and guided enquiry refinement](docs/EDITORIAL-EXPERIENCE.md)
 - [Premium motion, imagery and dark mode](docs/PREMIUM-MOTION.md)
 - [Screenshots](docs/screenshots/)
 

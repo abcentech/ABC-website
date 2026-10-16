@@ -85,44 +85,51 @@ test('desktop and mobile layouts, navigation, keyboard and reduced motion', asyn
   await page.getByRole('link', { name: 'Work', exact: true }).click()
   await expect(page).toHaveURL(/\/work$/)
 })
-test('project brief validates, previews accurately, and hands off without claiming submission', async ({
+test('project brief validates, preserves answers, and hands off without claiming submission', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/start-project')
   await page.getByRole('button', { name: 'Essential only' }).click()
-  await page.getByRole('button', { name: 'Prepare WhatsApp brief' }).click()
-  await expect(page.locator('.handoff')).toHaveCount(0)
-  await page.getByLabel('Full name').fill('Ada Example')
-  await page.getByLabel('Organization', { exact: false }).fill('Example Organization')
-  await page.getByLabel('Work email').fill('ada@example.org')
-  await page.getByLabel('Country').fill('Nigeria')
-  await page.getByLabel('Service required').selectOption({ label: 'Website development' })
-  await page.getByLabel('Estimated budget').selectOption({ label: '$5k–$15k' })
+  await page.getByRole('button', { name: 'Continue', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'What can we help you build?' })).toBeVisible()
+  await page.getByRole('radio', { name: /^Website development/ }).check()
+  await page.getByRole('button', { name: 'Continue', exact: true }).click()
   await page
     .getByLabel('What problem')
     .fill(
       'We need an accessible website that explains our services and makes enquiries straightforward.',
     )
+  await page.getByRole('radio', { name: '$5k–$15k', exact: true }).check()
+  await page.getByRole('button', { name: 'Continue', exact: true }).click()
+  await page.getByLabel('Full name').fill('Ada Example')
+  await page.getByLabel('Organization', { exact: false }).fill('Example Organization')
+  await page.getByLabel('Work email').fill('ada@example.org')
+  await page.getByLabel('Country').fill('Nigeria')
   await page.getByRole('checkbox').check()
-  await page.getByRole('button', { name: 'Prepare WhatsApp brief' }).click()
-  await expect(page.getByRole('heading', { name: 'Your brief is ready to review.' })).toBeVisible()
-  await expect(page.locator('.handoff')).toContainText('It has not been sent.')
-  const link = page.getByRole('link', { name: 'Review & send in WhatsApp' })
-  const href = await link.getAttribute('href')
-  const url = new URL(href!)
+  await page.getByRole('button', { name: 'Continue', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'A considered beginning.' })).toBeFocused()
+  await expect(page.locator('.review-notice')).toContainText('has not been sent')
+  const link = page.getByRole('link', { name: 'Continue to WhatsApp' })
+  const url = new URL((await link.getAttribute('href'))!)
   expect(url.hostname).toBe('wa.me')
   expect(url.pathname).toBe('/2348066512844')
   expect(url.searchParams.get('text')).toContain('Ada Example')
   expect(url.searchParams.get('text')).toContain('$5k–$15k')
-  await expect(link).toBeFocused()
   await page.screenshot({
     path: 'docs/screenshots/project-brief-mobile.png',
     fullPage: true,
     animations: 'disabled',
   })
+  await page.getByRole('button', { name: 'Edit details' }).click()
+  await expect(page.getByLabel('Organization', { exact: false })).toHaveValue(
+    'Example Organization',
+  )
   await page.getByLabel('Organization', { exact: false }).fill('Changed Organization')
-  await expect(page.locator('.handoff')).toHaveCount(0)
+  await page.getByRole('button', { name: 'Continue', exact: true }).click()
+  expect(new URL((await link.getAttribute('href'))!).searchParams.get('text')).toContain(
+    'Changed Organization',
+  )
 })
 test('cookie choice controls aggregate events, persists and can be revoked', async ({ page }) => {
   let events = 0

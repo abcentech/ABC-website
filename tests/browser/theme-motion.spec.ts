@@ -63,7 +63,7 @@ test('saved theme applies before React loads, and blocked storage has a working 
   await page.goto('/')
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
   expect(await page.locator('body').evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
-    'rgb(9, 19, 33)',
+    'rgb(12, 23, 34)',
   )
 })
 test('theme works without browser storage and dismisses outside its panel', async ({ page }) => {
@@ -91,7 +91,7 @@ test('interactive states, native page transitions and reduced-motion preference 
   await page.mouse.down()
   await expect(button).toHaveAttribute('data-pressed', 'true')
   await page.mouse.up()
-  await expect(page).toHaveURL(/\/start-project$/)
+  await expect(page).toHaveURL(/\/start-project\?service=website-development$/)
   await page.goto('/services/website-development')
   const summary = page.locator('.faq-list summary').first()
   await summary.click()

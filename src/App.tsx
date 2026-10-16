@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { Content, FAQ, Project, Service } from './content/types'
 import source from './content/site.json'
 import { SystemVisual, ProjectVisual, DeliveryDiagram, CapabilityGlyph } from './components/Visuals'
-import { ProjectForm } from './components/ProjectForm'
+import { ProjectStudio } from './components/ProjectStudio'
 import { Consent } from './components/Consent'
 import { consentValue } from './analytics'
 import { Admin } from './components/Admin'
@@ -83,7 +83,20 @@ function Header({ path }: { path: string }) {
     </header>
   )
 }
-function Footer({ content }: { content: Content }) {
+function Footer({ content, compact = false }: { content: Content; compact?: boolean }) {
+  if (compact)
+    return (
+      <footer className="brief-footer">
+        <p>© {new Date().getFullYear()} Ark Builders</p>
+        <div>
+          <a href="mailto:toni@arkbuilders.com.ng">toni@arkbuilders.com.ng</a>
+          <a href="/capabilities">
+            Our capabilities <Arrow />
+          </a>
+          <a href="/privacy">Privacy notice</a>
+        </div>
+      </footer>
+    )
   return (
     <footer>
       <div className="footer-top">
@@ -138,7 +151,7 @@ function Footer({ content }: { content: Content }) {
     </footer>
   )
 }
-function CTA() {
+function CTA({ service }: { service?: string }) {
   return (
     <section id="contact" className="closing">
       <div className="closing-orbit" aria-hidden="true" />
@@ -155,7 +168,7 @@ function CTA() {
           Let’s work out the right next step, together.
         </p>
       </div>
-      <Button />
+      <Button href={service ? `/start-project?service=${service}` : '/start-project'} />
     </section>
   )
 }
@@ -182,7 +195,7 @@ function SectionHead({
 }: {
   number: string
   label: string
-  title: string
+  title: React.ReactNode
   text?: string
 }) {
   return (
@@ -200,6 +213,16 @@ function SectionHead({
 function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="project-card">
+      <div className="project-card-top">
+        <span>
+          {project.slug === 'base-coldtivate'
+            ? 'BASE · SWITZERLAND'
+            : project.slug === 'church-times-nigeria'
+              ? 'CHURCH TIMES · NIGERIA'
+              : project.client}
+        </span>
+        <span>{project.status}</span>
+      </div>
       <a
         href={`/work/${project.slug}`}
         className="visual-link"
@@ -288,7 +311,11 @@ function Home({ content }: { content: Content }) {
             <i className="live-dot" /> CONSULTING · SOFTWARE · HARDWARE
           </span>
           <h1>
-            We Build Technology That <em>Moves Businesses Forward.</em>
+            <span>We Build Technology</span>{' '}
+            <span>
+              That <em>Moves Businesses</em>
+            </span>{' '}
+            <em>Forward.</em>
           </h1>
           <p>
             From custom software and digital platforms to AI-ready systems and technology
@@ -341,8 +368,14 @@ function Home({ content }: { content: Content }) {
         <SectionHead
           number="01"
           label="SELECTED WORK"
-          title="Real challenges. Purposeful solutions."
-          text="An introduction to our software contribution and a publishing platform in development. Clear about the work. Honest about its status."
+          title={
+            <>
+              Different challenges.
+              <br />
+              <em>Shared ambition.</em>
+            </>
+          }
+          text="Agriculture. Publishing. Technology built around the people who use it. Explore the context and the contribution behind each project."
         />
         <div className="project-grid">
           {content.projects.map((project) => (
@@ -357,7 +390,13 @@ function Home({ content }: { content: Content }) {
         <SectionHead
           number="02"
           label="WHAT WE CAN BUILD TOGETHER"
-          title="From the first question to the final handover."
+          title={
+            <>
+              The thinking. The building.
+              <br />
+              <em>The whole picture.</em>
+            </>
+          }
           text="A connected technology partner, whether you need a focused website or a more ambitious business platform."
         />
         <DeliveryDiagram />
@@ -376,13 +415,13 @@ function Home({ content }: { content: Content }) {
         <div>
           <span className="eyebrow">03 / CONTEXT MATTERS</span>
           <h2>
-            Built around your world.
+            Your context.
             <br />
-            <em>Not a template.</em>
+            <em>Our starting point.</em>
           </h2>
           <p>
-            Different sectors. Different constraints. We begin by understanding how your
-            organization actually works.
+            Good technology begins with the people who use it. We start with the way your
+            organization works, then shape the right response.
           </p>
           <a className="text-link" href="/industries">
             Explore industries <Arrow />
@@ -443,7 +482,9 @@ function ServicePage({ service, content }: { service: Service; content: Content 
   return (
     <>
       <PageHero label={service.title} title={service.eyebrow} text={service.intro}>
-        <Button>Discuss {service.title.toLowerCase()}</Button>
+        <Button href={`/start-project?service=${service.slug}`}>
+          Discuss {service.title.toLowerCase()}
+        </Button>
       </PageHero>
       <section className="section two-columns">
         <div>
@@ -481,8 +522,8 @@ function ServicePage({ service, content }: { service: Service; content: Content 
           title={related ? 'A closer look at our work.' : 'Start with your use case.'}
           text={
             related
-              ? 'The linked case study identifies the project status and evidence available. It does not imply delivery of every service listed here.'
-              : 'We do not publish unverified sector experience. Tell us what you need and we can discuss a relevant approach.'
+              ? 'Explore the project context and our contribution. Each engagement has its own scope and delivery requirements.'
+              : 'Tell us about the people, processes and systems involved. We’ll help shape an approach around your organization.'
           }
         />
         {related ? (
@@ -490,7 +531,7 @@ function ServicePage({ service, content }: { service: Service; content: Content 
             <ProjectCard project={related} />
           </div>
         ) : (
-          <Button>Discuss your requirements</Button>
+          <Button href={`/start-project?service=${service.slug}`}>Discuss your requirements</Button>
         )}
       </section>
       <section className="section faq-section">
@@ -500,7 +541,7 @@ function ServicePage({ service, content }: { service: Service; content: Content 
         </div>
         <FAQs questions={service.questions} />
       </section>
-      <CTA />
+      <CTA service={service.slug} />
     </>
   )
 }
@@ -510,7 +551,7 @@ function Work({ content }: { content: Content }) {
       <PageHero
         label="Work"
         title="Technology with a purpose."
-        text="Explore a software engineering contribution in agriculture and a publishing platform in development. No inflated metrics. No borrowed achievements."
+        text="A software engineering contribution to agricultural cooling services. A digital publishing platform in development. Explore the work in context."
       />
       <section className="section project-grid">
         {content.projects.map((p) => (
@@ -560,11 +601,19 @@ function CaseStudy({ project }: { project: Project }) {
         <aside>
           <span className="eyebrow">PROJECT CONTEXT</span>
           <h2>{project.name}</h2>
-          <p className="evidence-note">{project.approval}</p>
+          <nav className="case-index" aria-label="Case study sections">
+            {project.sections.map((section, index) => (
+              <a key={section.heading} href={`#story-${index + 1}`}>
+                <span>0{index + 1}</span>
+                {section.heading}
+                <Arrow />
+              </a>
+            ))}
+          </nav>
         </aside>
         <div>
           {project.sections.map((section) => (
-            <section key={section.heading}>
+            <section id={`story-${project.sections.indexOf(section) + 1}`} key={section.heading}>
               <h3>{section.heading}</h3>
               <p>{section.body}</p>
               {section.items.length > 0 && (
@@ -576,7 +625,11 @@ function CaseStudy({ project }: { project: Project }) {
               )}
             </section>
           ))}
-          <Button>{project.cta}</Button>
+          <Button
+            href={`/start-project?service=${project.slug === 'church-times-nigeria' ? 'website-development' : 'custom-software'}`}
+          >
+            {project.cta}
+          </Button>
         </div>
       </section>
       <CTA />
@@ -717,55 +770,68 @@ function Capabilities({ content }: { content: Content }) {
     </>
   )
 }
-function Contact({ brief, content }: { brief: boolean; content: Content }) {
+function Contact() {
   return (
     <>
-      <PageHero
-        label={brief ? 'Start a project' : 'Contact'}
-        title={brief ? 'Let’s build what comes next.' : 'A good conversation is a good start.'}
-        text={
-          brief
-            ? 'A website, a platform, a better workflow. Tell us what you have in mind and where you want to go.'
-            : 'Speak with Ark Builders about a business challenge, a project brief or procurement requirements.'
-        }
-      />
-      <section className="section contact-layout">
-        <aside className="contact-details">
-          <span className="eyebrow">LET’S CONNECT</span>
-          <h2>
-            Tell us where
+      <section className="contact-editorial">
+        <div className="studio-breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span>Contact</span>
+        </div>
+        <span className="eyebrow">ARK BUILDERS / LET’S TALK</span>
+        <div className="contact-editorial-heading">
+          <h1>
+            Everything starts
             <br />
-            you want to go.
-          </h2>
+            with a <em>conversation.</em>
+          </h1>
           <p>
-            Based in Lagos, Nigeria.
-            <br />
-            Working with local and international organizations.
+            A project to explore, a question to ask, or a procurement brief to discuss. Choose the
+            way that works for you.
           </p>
+        </div>
+        <div className="contact-channel-grid">
+          <a href="/start-project">
+            <span className="eyebrow">01 / TELL US WHAT YOU NEED</span>
+            <h2>Start a project.</h2>
+            <p>A few thoughtful questions to put your challenge in context.</p>
+            <span className="channel-action">
+              Prepare a brief <Arrow />
+            </span>
+          </a>
           <a
             href="https://wa.me/2348066512844"
-            className="button dark"
             target="_blank"
             rel="noreferrer"
             data-event="contact_whatsapp"
           >
-            Chat on WhatsApp <Arrow />
+            <span className="eyebrow">02 / KEEP IT CONVERSATIONAL</span>
+            <h2>Say hello.</h2>
+            <p>Talk through your idea directly with Ark Builders.</p>
+            <span className="channel-action">
+              Chat on WhatsApp <Arrow />
+            </span>
           </a>
           <a href="mailto:toni@arkbuilders.com.ng">
-            toni@arkbuilders.com.ng <Arrow />
+            <span className="eyebrow">03 / PUT IT IN WRITING</span>
+            <h2>Drop us a line.</h2>
+            <p>Share a project enquiry or request capability information.</p>
+            <span className="channel-action">
+              toni@arkbuilders.com.ng <Arrow />
+            </span>
           </a>
+        </div>
+        <div className="contact-editorial-bottom">
+          <p>
+            Based in Lagos, Nigeria.
+            <br />
+            <span>Open to local and international collaborations.</span>
+          </p>
           <a href="tel:+2348066512844">
             +234 806 651 2844 <Arrow />
           </a>
-          <div className="contact-note">
-            <b>What happens next?</b>
-            <p>
-              We clarify your goals, assess fit and agree a useful next step. A proposal follows an
-              agreed scope—not a form submission.
-            </p>
-          </div>
-        </aside>
-        <ProjectForm services={content.services} />
+        </div>
       </section>
     </>
   )
@@ -945,8 +1011,8 @@ export default function App({
   else if (path === '/work') page = <Work content={content} />
   else if (path === '/industries') page = <Industries content={content} />
   else if (path === '/capabilities') page = <Capabilities content={content} />
-  else if (path === '/contact' || path === '/start-project')
-    page = <Contact brief={path === '/start-project'} content={content} />
+  else if (path === '/contact') page = <Contact />
+  else if (path === '/start-project') page = <ProjectStudio services={content.services} />
   else if (path === '/privacy') page = <Privacy />
   else if (path === '/insights' || path.startsWith('/insights/'))
     page = <Insights content={content} slug={path.split('/')[2]} />
@@ -957,10 +1023,16 @@ export default function App({
         Skip to content
       </a>
       <Header path={path} />
-      <main id="main-content" tabIndex={-1}>
+      <main
+        id="main-content"
+        className={
+          path === '/start-project' ? 'project-route' : path === '/' ? 'home-route' : undefined
+        }
+        tabIndex={-1}
+      >
         {page}
       </main>
-      <Footer content={content} />
+      <Footer content={content} compact={path === '/start-project'} />
       <Consent />
     </>
   )
